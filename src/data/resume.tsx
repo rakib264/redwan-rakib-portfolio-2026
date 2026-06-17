@@ -19,6 +19,7 @@ import xoomSportsLogo from "@/assets/xoomsports.png";
 import everCareLogo from "@/assets/evercare.png";
 import eReturnLogo from "@/assets/eReturn.png";
 import theSocialChanceLogo from "@/assets/TheSocialChance.png";
+import meImage from "@/assets/me.jpeg";
 
 export const DATA = {
   name: "Redwan Rakib",
@@ -30,7 +31,7 @@ export const DATA = {
     "Software Engineer focused on building clean, scalable, and high-impact products across enterprise SaaS, government platforms, and real-time systems.",
   summary:
     "Detail-oriented engineering professional with a Bachelor of Science in Information Technology from Jahangirnagar University. At Synesis IT PLC, I deliver high-scale product features across [enterprise WebRTC conferencing](/#work) and [Bangladesh's largest government job portal](/#work), including AI-powered workflows and recruitment automation. I have also been recognized in [global innovation competitions](/#achievements), including Aspire South Asian Champion, Watson, and top regional and global placements at NASA Space Apps.",
-  avatarUrl: "/me.png",
+  avatarUrl: meImage.src,
   skills: [
     { name: "React", icon: ReactLight },
     { name: "Next.js", icon: NextjsIconDark },
