@@ -1,0 +1,47 @@
+---
+title: "React Memory Optimization: Fix Leaks Before They Bite"
+publishedAt: "2026-06-17"
+updatedAt: "2026-06-17"
+author: "Redwan Rakib"
+summary: "Where memory leaks really happen in React apps and the cleanup patterns that actually work in production."
+---
+
+# React Memory Optimization: Fix Leaks Before They Bite
+
+Most frontend memory issues are not dramatic algorithm problems. They come from small side effects that never get cleaned up. You usually won't notice in a quick test, but users with long sessions absolutely feel it.
+
+## **Where leaks really happen in React apps**
+
+In real projects, the common leak sources are predictable:
+
+- **Event listeners** added on mount but never removed.
+- **Intervals/timeouts** that continue running after navigation.
+- **Subscriptions** (sockets, observers, external stores) left active.
+- **Closures holding stale references** to large objects or old state snapshots.
+
+These leaks are sneaky because each one looks tiny. Together they slowly increase memory and degrade responsiveness.
+
+## **How to spot them in Chrome DevTools**
+
+My practical flow is simple:
+
+1. Open **Memory** tab and take a baseline heap snapshot.
+2. Reproduce the page flow a few times (open/close modals, switch routes, refresh data).
+3. Take another snapshot and compare retained objects.
+4. Check **Performance Monitor** for continuously rising JS heap.
+
+If detached DOM nodes, listeners, or retained arrays keep increasing after cleanup actions, you've likely found a leak path.
+
+## **Cleanup patterns that work**
+
+- **`useEffect` cleanup first**: always return cleanup for listeners, intervals, and subscriptions.
+- **Abort in-flight requests**: use `AbortController` so unmounted components don't update stale state.
+- **Use `WeakMap` for ephemeral mappings** tied to object lifecycles, especially in custom caches.
+- **Avoid accidental retention**: be careful what long-lived callbacks close over.
+
+You don't need heavy tooling for most cases - disciplined cleanup patterns solve the majority of leaks.
+
+## **Wrap-up**
+
+Memory optimization in React is mostly about operational hygiene: clean up side effects, cancel work on unmount, and verify with snapshots instead of assumptions.
+

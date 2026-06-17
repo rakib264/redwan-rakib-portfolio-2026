@@ -1,47 +1,40 @@
-<div align="center">
-<img alt="Portfolio" src="https://github.com/dillionverma/portfolio/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
-</div>
+# Redwan Rakib Portfolio
 
-# Portfolio [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdillionverma%2Fportfolio)
+Personal portfolio website for Redwan Rakib, built with Next.js, shadcn/ui, and Magic UI.
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
+Live site: <https://my-dev-portfolio-puce.vercel.app/>
 
-# Features
+## Tech Stack
 
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- shadcn/ui + Magic UI
+- MDX blog with `content-collections`
 
-# Getting Started Locally
+## Local Development
 
-1. Clone this repository to your local machine:
-
-   ```bash
-   git clone https://github.com/dillionverma/portfolio
-   ```
-
-2. Move to the cloned directory
+1. Install dependencies:
 
    ```bash
-   cd portfolio
+   yarn install
    ```
 
-3. Install dependencies:
+2. Run the development server:
 
    ```bash
-   pnpm install
+   yarn dev
    ```
 
-4. Start the local Server:
+3. Open <http://localhost:3000>
 
-   ```bash
-   pnpm dev
-   ```
+## Content Source
 
-5. Open the [Config file](./src/data/resume.tsx) and make changes
+Primary resume/profile content is managed in:
 
-# License
+- `src/data/resume.tsx`
 
-Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/main/LICENSE.md).
+Blog posts are authored in:
+
+- `content/*.mdx`

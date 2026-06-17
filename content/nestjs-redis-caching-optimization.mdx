@@ -1,0 +1,61 @@
+---
+title: "NestJS + Redis Caching That Actually Improves Throughput"
+publishedAt: "2026-06-17"
+updatedAt: "2026-06-17"
+author: "Redwan Rakib"
+summary: "A practical guide to service-layer caching in NestJS, including Redis setup, TTL strategy, and invalidation pitfalls."
+---
+
+# NestJS + Redis Caching That Actually Improves Throughput
+
+Database tuning helps, but it doesn't remove repeated work at the application layer. If the same expensive service computation runs for every request, your API still burns CPU and latency. That's where Redis caching in NestJS pays off fastest.
+
+## **Why caching matters at the service layer**
+
+Caching only at the DB layer is rarely enough for modern APIs. Service methods often combine:
+
+- DB queries
+- permission checks
+- transformations
+- aggregation logic
+
+Caching the final service response can cut all of that in one shot for hot endpoints.
+
+## **Clean Redis wiring in NestJS**
+
+Keep setup explicit and predictable:
+
+- Use `CacheModule` with Redis store in your app/module boundary.
+- Cache inside service methods where business logic is assembled.
+- Build deterministic cache keys (include tenant/user/scope when needed).
+
+This keeps caching behavior close to the code that owns data semantics.
+
+## **TTL strategy and invalidation gotchas**
+
+Good caching is mostly key design and expiration policy.
+
+- **Short TTL (30-120s)** for volatile dashboard/list data.
+- **Longer TTL (5-30m)** for slower-changing reference/config data.
+- **Explicit invalidation** on write paths for critical correctness.
+
+Common gotchas:
+
+- Reusing broad keys across tenants/users.
+- Forgetting to invalidate after updates.
+- Caching partially authorized payloads and serving them to the wrong audience.
+
+## **When NOT to cache**
+
+Don't cache blindly. Skip caching for:
+
+- highly personalized responses with low reuse
+- strongly real-time data where stale output is unacceptable
+- very cheap queries where cache overhead outweighs gains
+
+Caching should reduce total work, not add complexity for negligible benefit.
+
+## **Wrap-up**
+
+The best NestJS caching setups are boring: clear keys, realistic TTLs, and intentional invalidation. Done right, Redis becomes a throughput multiplier - not a source of stale-data bugs.
+

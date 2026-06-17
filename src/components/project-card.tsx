@@ -6,20 +6,19 @@ import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import Markdown from "react-markdown";
 
 function ProjectImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
 
   if (!src || imageError) {
-    return <div className="w-full h-48 bg-muted" />;
+    return <div className="w-full h-full bg-muted" />;
   }
 
   return (
     <img
       src={src}
       alt={alt}
-      className="w-full h-48 object-cover"
+      className="w-full h-full object-contain p-2 bg-white dark:bg-slate-950"
       onError={() => setImageError(true)}
     />
   );
@@ -29,7 +28,6 @@ interface Props {
   title: string;
   href?: string;
   description: string;
-  dates: string;
   tags: readonly string[];
   link?: string;
   image?: string;
@@ -46,7 +44,6 @@ export function ProjectCard({
   title,
   href,
   description,
-  dates,
   tags,
   link,
   image,
@@ -57,59 +54,43 @@ export function ProjectCard({
   return (
     <div
       className={cn(
-        "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200",
+        "group flex flex-col h-full border border-border/70 bg-card rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10 hover:transform-[perspective(1200px)_rotateX(2deg)_rotateY(-2deg)]",
         className
       )}
     >
-      <div className="relative shrink-0">
+      <div className="relative shrink-0 h-52 p-4 bg-linear-to-br from-slate-100 via-slate-100 to-slate-200 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
         <Link
           href={href || "#"}
           target="_blank"
           rel="noopener noreferrer"
-          className="block"
+          className="block h-full"
         >
-          {video ? (
-            <video
-              src={video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-48 object-cover"
-            />
-          ) : image ? (
-            <ProjectImage src={image} alt={title} />
-          ) : (
-            <div className="w-full h-48 bg-muted" />
-          )}
-        </Link>
-        {links && links.length > 0 && (
-          <div className="absolute top-2 right-2 flex flex-wrap gap-2">
-            {links.map((link, idx) => (
-              <Link
-                href={link.href}
-                key={idx}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Badge
-                  className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90"
-                  variant="default"
-                >
-                  {link.icon}
-                  {link.type}
-                </Badge>
-              </Link>
-            ))}
+          <div className="relative h-full rounded-xl border border-black/10 bg-background/80 p-2 shadow-2xl shadow-black/15 transition-transform duration-500 group-hover:translate-y-[-4px] group-hover:rotate-[0.5deg]">
+            <div className="h-full w-full overflow-hidden rounded-lg border border-border/70 bg-muted">
+              {video ? (
+                <video
+                  src={video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              ) : image ? (
+                <ProjectImage src={image} alt={title} />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-indigo-500/30 via-cyan-500/25 to-violet-500/25 text-xs font-medium text-muted-foreground">
+                  Live Product Preview
+                </div>
+              )}
+            </div>
           </div>
-        )}
+        </Link>
       </div>
-      <div className="p-6 flex flex-col gap-3 flex-1">
+      <div className="p-4 sm:p-5 flex flex-col gap-3 flex-1">
         <div className="flex items-start justify-between gap-2">
           <div className="flex flex-col gap-1">
-            <h3 className="font-semibold">{title}</h3>
-            <time className="text-xs text-muted-foreground">{dates}</time>
+            <h3 className="font-semibold leading-tight">{title}</h3>
           </div>
           <Link
             href={href || "#"}
@@ -121,9 +102,9 @@ export function ProjectCard({
             <ArrowUpRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
-        <div className="text-xs flex-1 prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
-          <Markdown>{description}</Markdown>
-        </div>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          {description}
+        </p>
         {tags && tags.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-auto">
             {tags.map((tag) => (

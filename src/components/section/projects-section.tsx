@@ -31,7 +31,7 @@ export default function ProjectsSection() {
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto auto-rows-fr">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-6xl mx-auto auto-rows-fr w-full">
                     {DATA.projects.map((project, id) => (
                         <BlurFade
                             key={project.title}
@@ -43,7 +43,6 @@ export default function ProjectsSection() {
                                 key={project.title}
                                 title={project.title}
                                 description={project.description}
-                                dates={project.dates}
                                 tags={project.technologies}
                                 image={project.image}
                                 video={project.video}

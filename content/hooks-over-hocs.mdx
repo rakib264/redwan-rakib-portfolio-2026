@@ -1,0 +1,43 @@
+---
+title: "Hooks Over HOCs: Why the Shift Was Inevitable"
+publishedAt: "2026-06-17"
+updatedAt: "2026-06-17"
+author: "Redwan Rakib"
+summary: "Why React hooks replaced HOCs in most codebases, and the mental model that makes the change obvious."
+---
+
+# Hooks Over HOCs: Why the Shift Was Inevitable
+
+I used HOCs heavily in older React projects, and they were useful for a while. But once a codebase grows, they introduce friction in places you don't expect. Hooks solved most of that pain without changing the core idea of code reuse.
+
+## **Why HOCs started getting painful**
+
+HOCs looked clean at first: wrap a component, inject behavior, move on. The trouble showed up later.
+
+- **Prop collisions** became common when multiple wrappers injected similarly named props.
+- **Wrapper hell** made component trees harder to read (`withA(withB(withC(Component)))`).
+- **Debugging got messy** because stack traces and React DevTools showed layers of abstractions before the real component.
+
+None of this is "wrong" architecture. It just adds indirection that slows teams down when features and contributors increase.
+
+## **How hooks solved the same problems**
+
+Hooks kept the reuse benefit but removed the wrapper overhead.
+
+- Logic is reused as functions, not component wrappers.
+- State and side effects stay close to where they're used.
+- You can compose behavior with multiple hooks in one component without reshaping props.
+
+Instead of guessing what a wrapper injected, you can usually read the hook call and know what's happening in seconds.
+
+## **Before vs after mental model**
+
+Think of the old HOC model as: _"decorate this component and hope prop plumbing stays clean."_  
+The hook model is: _"pull reusable behavior into plain functions and compose directly where you render."_
+
+That one shift reduces hidden behavior and makes refactors safer.
+
+## **Wrap-up**
+
+HOCs are still valid for specific patterns, but hooks became the default for good reason: less ceremony, less indirection, and much better day-to-day maintainability.
+

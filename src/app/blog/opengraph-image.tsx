@@ -1,8 +1,9 @@
  
 import { ImageResponse } from "next/og";
-import { DATA } from "@/data/resume";
 
 export const runtime = "edge";
+
+const SITE_URL = "https://my-dev-portfolio-puce.vercel.app/";
 
 export const alt = "Blog";
 export const size = {
@@ -110,9 +111,7 @@ export default async function Image() {
         const fontData = await getFontData();
         const title = "Blog";
         const description = "Thoughts on software development, life, and more.";
-        const imageUrl = DATA.avatarUrl
-            ? new URL(DATA.avatarUrl, DATA.url).toString()
-            : undefined;
+        const imageUrl = new URL("/me.png", SITE_URL).toString();
 
         return new ImageResponse(
             (
