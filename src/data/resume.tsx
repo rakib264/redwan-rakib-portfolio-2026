@@ -21,6 +21,12 @@ import eReturnLogo from "@/assets/eReturn.png";
 import theSocialChanceLogo from "@/assets/TheSocialChance.png";
 import meImage from "@/assets/me.jpeg";
 
+import moinulImage from "@/assets/moinul.png";
+import shamimaImage from "@/assets/shamim.png";
+import ajazImage from "@/assets/ajaz.png";
+import eliasImage from "@/assets/elias.png";
+import sarifulImage from "@/assets/shariful.jpeg";
+
 export const DATA = {
   name: "Redwan Rakib",
   initials: "RR",
@@ -91,7 +97,7 @@ export const DATA = {
       start: "Nov 2023",
       end: "Present",
       description:
-        "Engineered key components of Convay's Jitsi Meet-based WebRTC infrastructure to sustain 10,000+ concurrent users while preserving session consistency under peak load. Delivered multi-tenant SaaS capabilities including billing, RBAC, and an AI meeting assistant with automated minutes. On the National Job Portal, built AI-powered exam proctoring, intelligent job recommendations, and end-to-end recruitment workflows (question management, candidate administration, shortlisting, seat-plan generation, and result processing) that scaled live exam capacity to 8,000+ candidates and reduced recruitment timelines by 2x.",
+        "eReturn: Built the corporate dashboard, designed complex tax-filing workflows, and developed a profile-matching system to accelerate tax candidate selection while improving filing accuracy and review efficiency. Convay: Engineered core components of a Jitsi Meet-based WebRTC platform supporting 10,000+ concurrent users, with multi-tenant billing, RBAC, and an AI assistant for meeting minutes and transcript-driven follow-ups. National Job Portal (NJP): Built AI-powered proctoring, job recommendations, and end-to-end recruitment workflows (question management, candidate administration, seat planning, and result processing) that scaled live exam capacity to 8,000+ candidates and reduced recruitment timelines by 2x.",
     },
     {
       company: "Root Devs",
@@ -276,6 +282,44 @@ export const DATA = {
       ],
       image: xoomSportsLogo.src,
       video: "",
+    },
+  ],
+
+  testimonials: [
+    {
+      name: "Moinul Islam",
+      role: "Head of Development, Synesis IT",
+      avatarUrl: moinulImage.src,
+      quote:
+        "Redwan joined Convay at Synesis IT and delivered key meeting capabilities like calling, scheduling, management, transcription, and recording with strong execution. His ownership and consistency stood out.",
+    },
+    {
+      name: "Shamima Nader",
+      role: "CEO, The Social Chance",
+      avatarUrl: shamimaImage.src,
+      quote:
+        "As lead architect at The Social Chance, Redwan builds products that compete with global UGC leaders. He combines strong engineering with practical problem-solving and stays highly dependable in remote collaboration.",
+    },
+    {
+      name: "Ajaz Khan",
+      role: "Ex-Director, Mighty Byte",
+      avatarUrl: ajazImage.src,
+      quote:
+        "Rakib joined the Evercare project mid-development and made an immediate impact. He works hard, adapts quickly, and is always easy to collaborate with.",
+    },
+    {
+      name: "Elias Hossain",
+      role: "CEO, RootDevs",
+      avatarUrl: eliasImage.src,
+      quote:
+        "Redwan worked on our flagship product, Xoomsports, and helped us deliver ahead of schedule. He took full ownership and consistently pushed value beyond the original scope.",
+    },
+    {
+      name: "Sariful Alam",
+      role: "Team Lead, Synesis IT, National Job Portal & eReturn Project",
+      avatarUrl: sarifulImage.src,
+      quote:
+        "On NJP and eReturn, Redwan handled high-pressure delivery with exceptional commitment, including weekends when needed. His focus on quality under tight deadlines is genuinely impressive.",
     },
   ],
 

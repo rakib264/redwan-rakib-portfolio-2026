@@ -88,7 +88,10 @@ export default function HackathonsSection() {
         </div>
         <Timeline>
           {DATA.hackathons.map((hackathon) => {
-            const imageSrc = resolveHackathonImage(hackathon.title, hackathon.image);
+            const imageSrc = resolveHackathonImage(
+              hackathon.title,
+              hackathon.image,
+            );
 
             return (
               <TimelineItem
@@ -106,16 +109,16 @@ export default function HackathonsSection() {
                         })
                       }
                       aria-label={`Open ${hackathon.title} logo`}
-                      className="group/logo size-14 bg-card z-10 shrink-0 overflow-hidden p-1 border rounded-full shadow ring-2 ring-border flex-none cursor-zoom-in transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      className="group/logo size-14 bg-card z-10 shrink-0 overflow-hidden p-0.5 border rounded-full shadow ring-2 ring-border flex-none cursor-zoom-in transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     >
                       <img
                         src={imageSrc}
                         alt={hackathon.title}
-                        className="size-full object-contain transition-transform duration-300 group-hover/logo:scale-110"
+                        className="size-full object-cover bg-card transition-transform duration-300 group-hover/logo:scale-110"
                       />
                     </button>
                   ) : (
-                    <div className="size-14 bg-card z-10 shrink-0 overflow-hidden p-1 border rounded-full shadow ring-2 ring-border flex-none" />
+                    <div className="size-14 bg-card z-10 shrink-0 overflow-hidden p-0.5 border rounded-full shadow ring-2 ring-border flex-none" />
                   )}
                 </TimelineConnectItem>
                 <div className="flex flex-1 flex-col justify-start gap-2 min-w-0">
