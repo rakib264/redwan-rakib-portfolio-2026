@@ -11,21 +11,21 @@ import {
 } from "@/components/timeline";
 
 import actionAidLogo from "@/assets/actionaid.png";
-import nasaSpaceAppsLogo from "@/assets/nasa.png";
 import aspireLeadersProgramLogo from "@/assets/aspire.png";
 import ctoForumInnovationHackathonLogo from "@/assets/cto.png";
 import banglalinkSdgHackathon3Logo from "@/assets/banglalink.png";
 import bylcVentureLogo from "@/assets/bylc.png";
-import watsonLogo from "@/assets/watson.png";
 
 const HACKATHON_IMAGE_MAP: Record<string, string> = {
   actionaiddigitalinnovationchallenge: actionAidLogo.src,
-  nasaspaceappschallenge: nasaSpaceAppsLogo.src,
+  nasaspaceappschallenge:
+    "https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg",
   aspireleadersprogram: aspireLeadersProgramLogo.src,
   ctoforuminnovationhackathon: ctoForumInnovationHackathonLogo.src,
   banglalinksdghackathon30: banglalinkSdgHackathon3Logo.src,
   bylcventure: bylcVentureLogo.src,
-  watsonacceleratorfellowship: watsonLogo.src,
+  watsonacceleratorfellowship:
+    "https://images.squarespace-cdn.com/content/v1/5f0e4f5dbde4f75f6f7c675e/1597125735116-RI6AAW9Q3N4FY6WLBMMW/Watson+Institute+Logo.png",
 };
 
 function normalizeTitle(value: string) {

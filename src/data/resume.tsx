@@ -14,11 +14,8 @@ import rootdevsLogo from "@/assets/rootdevs.png";
 import mightybyteLogo from "@/assets/mighty.png";
 import juLogo from "@/assets/ju.png";
 import convayLogo from "@/assets/convay.png";
-import nationalJobPortalLogo from "@/assets/njp.png";
-import xoomSportsLogo from "@/assets/xoomsports.png";
 import everCareLogo from "@/assets/evercare.png";
 import eReturnLogo from "@/assets/eReturn.png";
-import theSocialChanceLogo from "@/assets/TheSocialChance.png";
 import meImage from "@/assets/me.jpeg";
 
 import moinulImage from "@/assets/moinul.png";
@@ -38,6 +35,7 @@ export const DATA = {
   summary:
     "Detail-oriented engineering professional with a Bachelor of Science in Information Technology from Jahangirnagar University. At Synesis IT PLC, I deliver high-scale product features across [enterprise WebRTC conferencing](/#work) and [Bangladesh's largest government job portal](/#work), including AI-powered workflows and recruitment automation. I have also been recognized in [global innovation competitions](/#achievements), including Aspire South Asian Champion, Watson, and top regional and global placements at NASA Space Apps.",
   avatarUrl: meImage.src,
+  resumeUrl: "/Redwan_Rakib.pdf",
   skills: [
     { name: "React", icon: ReactLight },
     { name: "Next.js", icon: NextjsIconDark },
@@ -219,7 +217,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: nationalJobPortalLogo.src,
+      image: "",
       video: "",
     },
     {
@@ -250,7 +248,7 @@ export const DATA = {
         "Global UGC marketplace connecting brands with creators. HLS video delivery via Bunny CDN for world-class performance.",
       technologies: ["React", "Next.js", "NestJS", "AWS", "Bunny CDN", "HLS"],
       links: [],
-      image: theSocialChanceLogo.src,
+      image: "",
       video: "",
     },
     {
@@ -280,7 +278,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: xoomSportsLogo.src,
+      image: "",
       video: "",
     },
   ],
@@ -376,8 +374,7 @@ export const DATA = {
       title: "BYLC Venture",
       dates: "2020",
       location: "Bangladesh",
-      description:
-        "Winner of the BYLC Venture social entrepreneurship competition.",
+      description: "Winner of the BYLC Venture social entrepreneurship competition.",
       image: "",
       win: "Winner",
       links: [],
@@ -387,10 +384,11 @@ export const DATA = {
       dates: "2019",
       location: "International",
       description:
-        "Awarded a Watson Accelerator Fellowship by the Watson Accelerator for sustained impact through innovation.",
+        "Awarded a Watson Accelerator Fellowship for sustained impact through innovation.",
       image: "",
       win: "Watson Accelerator Fellowship",
       links: [],
     },
   ],
 } as const;
+

@@ -10,7 +10,7 @@ import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import TestimonialsSection from "@/components/section/testimonials-section";
 import WorkSection from "@/components/section/work-section";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -32,6 +32,17 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
+              <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                <a
+                  href={DATA.resumeUrl}
+                  download="Redwan_Rakib.pdf"
+                  aria-label="Download resume"
+                  className="mt-2 inline-flex h-8 w-fit items-center gap-2 rounded-xl border border-border bg-background px-3.5 text-sm font-medium text-foreground ring-2 ring-border/20 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <ArrowDownToLine className="size-3.5" aria-hidden />
+                  Resume
+                </a>
+              </BlurFade>
             </div>
             <BlurFade
               delay={BLUR_FADE_DELAY}
