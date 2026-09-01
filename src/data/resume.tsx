@@ -14,8 +14,11 @@ import rootdevsLogo from "@/assets/rootdevs.png";
 import mightybyteLogo from "@/assets/mighty.png";
 import juLogo from "@/assets/ju.png";
 import convayLogo from "@/assets/convay.png";
+import nationalJobPortalLogo from "@/assets/njp.png";
+import xoomSportsLogo from "@/assets/xoomsports.png";
 import everCareLogo from "@/assets/evercare.png";
 import eReturnLogo from "@/assets/eReturn.png";
+import theSocialChanceLogo from "@/assets/TheSocialChance.png";
 import meImage from "@/assets/me.jpeg";
 
 import moinulImage from "@/assets/moinul.png";
@@ -217,7 +220,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
+      image: nationalJobPortalLogo.src,
       video: "",
     },
     {
@@ -248,7 +251,7 @@ export const DATA = {
         "Global UGC marketplace connecting brands with creators. HLS video delivery via Bunny CDN for world-class performance.",
       technologies: ["React", "Next.js", "NestJS", "AWS", "Bunny CDN", "HLS"],
       links: [],
-      image: "",
+      image: theSocialChanceLogo.src,
       video: "",
     },
     {
@@ -278,7 +281,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
+      image: xoomSportsLogo.src,
       video: "",
     },
   ],
