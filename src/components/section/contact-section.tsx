@@ -1,20 +1,7 @@
-import Link from "next/link";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { DATA } from "@/data/resume";
 
 export default function ContactSection() {
-  const primaryContactLink =
-    DATA.contact.social.LinkedIn?.url ??
-    DATA.contact.social.GitHub?.url ??
-    DATA.contact.social.email?.url ??
-    `mailto:${DATA.contact.email}`;
-
-  const primaryContactLabel = DATA.contact.social.LinkedIn?.url
-    ? "on LinkedIn"
-    : DATA.contact.social.GitHub?.url
-      ? "on GitHub"
-      : "by email";
-
   return (
     <div className="border rounded-xl p-10 relative">
       <div className="absolute -top-4 border bg-primary z-10 rounded-xl px-4 py-1 left-1/2 -translate-x-1/2">
@@ -36,20 +23,35 @@ export default function ContactSection() {
           Get in Touch
         </h2>
         <p className="mx-auto max-w-lg text-muted-foreground text-balance">
-          Want to chat? Just shoot me a dm{" "}
-          <Link
-            href={primaryContactLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-          >
-            with a direct question {primaryContactLabel}
-          </Link>{" "}
-          and I&apos;ll respond whenever I can. I will ignore all
+          Want to chat? Email or WhatsApp me — I&apos;ll reply when I can. No
           soliciting.
         </p>
+        <ul className="mt-2 flex w-full max-w-md flex-col gap-2 text-left">
+          {DATA.contact.methods.map((method) => (
+            <li key={method.label}>
+              <a
+                href={method.href}
+                {...(method.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="flex min-h-14 items-center gap-3 rounded-lg border bg-background/80 px-3 py-2 transition-colors hover:bg-muted hover:border-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+                  <method.icon className="size-4" />
+                </span>
+                <span className="flex min-w-0 flex-col">
+                  <span className="text-xs text-muted-foreground">
+                    {method.label}
+                  </span>
+                  <span className="truncate text-sm font-medium">
+                    {method.value}
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 }
-

@@ -15,8 +15,11 @@ import aspireLeadersProgramLogo from "@/assets/aspire.png";
 import ctoForumInnovationHackathonLogo from "@/assets/cto.png";
 import banglalinkSdgHackathon3Logo from "@/assets/banglalink.png";
 import bylcVentureLogo from "@/assets/bylc.png";
+import whatsonLogo from "@/assets/whatson.png";
+import sparkPhoto from "@/assets/spark.png";
 
 const HACKATHON_IMAGE_MAP: Record<string, string> = {
+  sparkideainnovationseason1: sparkPhoto.src,
   actionaiddigitalinnovationchallenge: actionAidLogo.src,
   nasaspaceappschallenge:
     "https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg",
@@ -24,9 +27,11 @@ const HACKATHON_IMAGE_MAP: Record<string, string> = {
   ctoforuminnovationhackathon: ctoForumInnovationHackathonLogo.src,
   banglalinksdghackathon30: banglalinkSdgHackathon3Logo.src,
   bylcventure: bylcVentureLogo.src,
-  watsonacceleratorfellowship:
-    "https://images.squarespace-cdn.com/content/v1/5f0e4f5dbde4f75f6f7c675e/1597125735116-RI6AAW9Q3N4FY6WLBMMW/Watson+Institute+Logo.png",
+  watsonacceleratorfellowship: whatsonLogo.src,
 };
+
+// Documents and wide logos are contained so they are not cropped in the circle.
+const CONTAIN_IMAGE_KEYS = new Set(["watsonacceleratorfellowship"]);
 
 function normalizeTitle(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -92,6 +97,11 @@ export default function HackathonsSection() {
               hackathon.title,
               hackathon.image,
             );
+            const imageFit = CONTAIN_IMAGE_KEYS.has(
+              normalizeTitle(hackathon.title),
+            )
+              ? "object-contain bg-white"
+              : "object-cover bg-card";
 
             return (
               <TimelineItem
@@ -114,7 +124,7 @@ export default function HackathonsSection() {
                       <img
                         src={imageSrc}
                         alt={hackathon.title}
-                        className="size-full object-cover bg-card transition-transform duration-300 group-hover/logo:scale-110"
+                        className={`size-full ${imageFit} transition-transform duration-300 group-hover/logo:scale-110`}
                       />
                     </button>
                   ) : (

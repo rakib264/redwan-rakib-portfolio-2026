@@ -19,7 +19,10 @@ import xoomSportsLogo from "@/assets/xoomsports.png";
 import everCareLogo from "@/assets/evercare.png";
 import eReturnLogo from "@/assets/eReturn.png";
 import theSocialChanceLogo from "@/assets/TheSocialChance.png";
-import meImage from "@/assets/me.jpeg";
+import afsLogo from "@/assets/afs.png";
+import coderBhaiLogo from "@/assets/coderbhai.png";
+import sparkPhoto from "@/assets/spark.png";
+import profileImage from "@/assets/profile.jpeg";
 
 import moinulImage from "@/assets/moinul.png";
 import shamimaImage from "@/assets/shamim.png";
@@ -37,7 +40,7 @@ export const DATA = {
     "Software Engineer focused on building clean, scalable, and high-impact products across enterprise SaaS, government platforms, and real-time systems.",
   summary:
     "Detail-oriented engineering professional with a Bachelor of Science in Information Technology from Jahangirnagar University. At Synesis IT PLC, I deliver high-scale product features across [enterprise WebRTC conferencing](/#work) and [Bangladesh's largest government job portal](/#work), including AI-powered workflows and recruitment automation. I have also been recognized in [global innovation competitions](/#achievements), including Aspire South Asian Champion, Watson, and top regional and global placements at NASA Space Apps.",
-  avatarUrl: meImage.src,
+  avatarUrl: profileImage.src,
   resumeUrl: "/Redwan_Rakib.pdf",
   skills: [
     { name: "React", icon: ReactLight },
@@ -65,6 +68,29 @@ export const DATA = {
   contact: {
     email: "redwan.rakib264@gmail.com",
     tel: "+8801828123264",
+    methods: [
+      {
+        label: "WhatsApp",
+        value: "+8801828123264",
+        href: "https://wa.me/8801828123264",
+        icon: Icons.whatsapp,
+        external: true,
+      },
+      {
+        label: "Email",
+        value: "redwan.rakib264@gmail.com",
+        href: "mailto:redwan.rakib264@gmail.com",
+        icon: Icons.email,
+        external: false,
+      },
+      {
+        label: "Work",
+        value: "rakib@farmexshop.com",
+        href: "mailto:rakib@farmexshop.com",
+        icon: Icons.email,
+        external: false,
+      },
+    ],
     social: {
       GitHub: {
         name: "GitHub",
@@ -284,6 +310,49 @@ export const DATA = {
       image: xoomSportsLogo.src,
       video: "",
     },
+    {
+      title: "ACS Future School",
+      href: "https://acsfutureschool.com/",
+      dates: "2024 - Present",
+      active: true,
+      description:
+        "Online academic platform for Class 6–12 students in Bangladesh. Live and recorded classes, exams, and study materials with a full year-round curriculum.",
+      technologies: [
+        "React",
+        "Next.js",
+        "React Native",
+        "NestJS",
+        "TypeScript",
+        "PostgreSQL",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://acsfutureschool.com/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: afsLogo.src,
+      video: "",
+    },
+    {
+      title: "Coder Bhai",
+      href: "https://www.codervai.com/",
+      dates: "2024 - Present",
+      active: true,
+      description:
+        "EdTech and engineering platform for coding education in Bangladesh. Courses, live classes, and production apps spanning web, mobile, and CSE fundamentals.",
+      technologies: ["React", "Next.js", "React Native", "NestJS", "TypeScript"],
+      links: [
+        {
+          type: "Website",
+          href: "https://www.codervai.com/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: coderBhaiLogo.src,
+      video: "",
+    },
   ],
 
   testimonials: [
@@ -325,6 +394,16 @@ export const DATA = {
   ],
 
   hackathons: [
+    {
+      title: "SPARK Idea Innovation Season 1",
+      dates: "2025",
+      location: "Dhaka, Bangladesh",
+      description:
+        "Winner - mentored the winning team building an AI waste detection and mapping platform.",
+      image: sparkPhoto.src,
+      win: "Winner (Mentor)",
+      links: [],
+    },
     {
       title: "ActionAid Digital Innovation Challenge",
       dates: "2024",
